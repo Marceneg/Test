@@ -1,0 +1,10 @@
+kmp = gcc -Wall -Wextra -Werror -std=c11
+all: cipher
+cipher: cipher.o
+	mkdir -p ../build
+	$(kmp) cipher.o -o ../build/cipher
+cipher.o: cipher.c
+	$(kmp) -c cipher.c
+rebuild: clean all
+clean:
+	rm -rf *.o  cipher ../build

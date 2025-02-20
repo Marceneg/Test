@@ -1,0 +1,11 @@
+kmp = gcc -Wall -Wextra -Werror -std=c11
+all:
+strlen_tests: s21_string.o s21_string_test.o
+	mkdir -p ../build
+	$(kmp) s21_string.o s21_string_test.o -o ../build/Quest1 
+s21_string.o: s21_string.c
+	$(kmp) -c s21_string.c
+s21_string_test.o: s21_string_test.c
+	$(kmp) -c s21_string_test.c 
+clean:
+	rm -rf *.o  Quest1 ../build

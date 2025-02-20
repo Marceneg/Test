@@ -1,0 +1,10 @@
+kmp = gcc -Wall -Wextra -Werror -std=c11
+all:
+door_struct: dmanager_module.o
+	mkdir -p ../build
+	$(kmp) dmanager_module.o -o ../build/Quest1
+dmanager_module.o: dmanager_module.c
+	$(kmp) -c dmanager_module.c
+rebuild: clean door_struct
+clean:
+	rm -rf *.o  Quest1 ../build
